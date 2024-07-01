@@ -1,10 +1,10 @@
 {
-  "name": "webpack-basic-template",
+  "name": "deep-vinci.github.io",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "webpack --watch",
     "build": "webpack"
   },
   "author": "",
