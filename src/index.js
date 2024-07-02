@@ -33,7 +33,6 @@ const createRepoDiv = (repository) => {
     const starGazersCount = repository.stargazers_count;
     const publicText = "public"
 
-
     let repositoryDiv = document.createElement("div");
     let infoDiv = document.createElement("div");
     let svgDiv = document.createElement("div");
