@@ -20,7 +20,7 @@ body {
 .repositories {
     display: flex;
     flex-wrap: wrap;
-    width: 90vw;
+    width: 95vw;
 }
 
 .repository {

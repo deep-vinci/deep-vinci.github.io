@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "webpack --watch",
-    "build": "webpack"
+    "build": "git subtree push --prefix dist origin gh-pages"
   },
   "author": "",
   "license": "ISC",
