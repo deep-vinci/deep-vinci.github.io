@@ -69,7 +69,10 @@ a:link {
     background-color: transparent;
     text-decoration: none;
 }
-  
+
+a:visited {
+    color: rgb(68, 147, 248);
+}
 a:hover {
     text-decoration: underline;
 }
