@@ -36,6 +36,7 @@ const repositoryContainer = document.querySelector(".repositories");
 
 
 const createRepoDiv = (repository) => {
+    // console.log(repository)
     const languageColors = {
         javascript: "#f1e05a",
         html: "#e34c26",
@@ -69,6 +70,7 @@ const createRepoDiv = (repository) => {
     let infoDiv = document.createElement("div");
     let svgDiv = document.createElement("div");
     let repositoryNameDiv = document.createElement("div");
+    let linkOfRepo = document.createElement("a");
     let publicDiv = document.createElement("div");
 
     let info2Div = document.createElement("p");
@@ -93,14 +95,19 @@ const createRepoDiv = (repository) => {
 
     // adding the necessary attr to element
 
-    repositoryNameDiv.textContent = repoName;
+    let repoA = document.querySelector(".repository-name")
+    linkOfRepo.textContent = repoName;
+    linkOfRepo.href = repository.svn_url;
+    // repositoryNameDiv.href = "https://google.com";
     svgDiv.innerHTML = SVG.repositoryIcon;
     publicDiv.textContent = publicText;
 
-    languageSpan.textContent = language;
-    // console.log(language, repoName)
-    languageColorSpan.style.backgroundColor = languageColors[language === null ? null : language.toLowerCase() ];
+
+    languageSpan.textContent = language == null ? "no lang" : language;
+    languageColorSpan.style.backgroundColor = languageColors[language === null ? null : language.toLowerCase() ] == null ? "gray" : languageColors[language === null ? null : language.toLowerCase() ];
     starGazers.innerHTML = SVG.starGazersIcon + starGazersCount;
+    
+    
     // starGazers.textContent = starGazersCount;
     // appending the nodes
 
@@ -108,6 +115,7 @@ const createRepoDiv = (repository) => {
     repositoryDiv.appendChild(infoDiv);
     infoDiv.appendChild(svgDiv);
     infoDiv.appendChild(repositoryNameDiv);
+    repositoryNameDiv.appendChild(linkOfRepo);
     infoDiv.appendChild(publicDiv);
 
     repositoryDiv.appendChild(info2Div);

@@ -79,7 +79,7 @@ a:hover {
     margin-top: auto;
     display: flex;
     gap: 25px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .info-2 a {
@@ -100,7 +100,7 @@ a:hover {
 
 .language-stats {
     display: flex;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     gap: 5px;
     align-items: baseline;
 }
