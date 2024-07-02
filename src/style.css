@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    box-sizing: border-box;
 }
 body {
     background-color: rgb(13, 17, 23);
@@ -114,4 +115,22 @@ a:hover {
     border-radius: 50%;
     display: inline-block;
     height: 12px;
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 90vw;
+    height: 15vh;
+    background-color: transparent;
+    border: none;
+    color: rgb(141, 150, 160);
+    font-size: 3rem;
+    outline: none;
+    padding: 10px;
 }
