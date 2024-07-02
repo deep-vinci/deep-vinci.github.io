@@ -4,7 +4,7 @@ const repositoryContainer = document.querySelector(".repositories");
 const searchInput = document.querySelector("#search")
 
 const createRepoDiv = (repository) => {
-    // console.log(repository)
+
     const languageColors = {
         javascript: "#f1e05a",
         html: "#e34c26",
@@ -66,17 +66,13 @@ const createRepoDiv = (repository) => {
     let repoA = document.querySelector(".repository-name")
     linkOfRepo.textContent = repoName;
     linkOfRepo.href = repository.svn_url;
-    // repositoryNameDiv.href = "https://google.com";
     svgDiv.innerHTML = SVG.repositoryIcon;
     publicDiv.textContent = publicText;
-
 
     languageSpan.textContent = language == null ? "no lang" : language;
     languageColorSpan.style.backgroundColor = languageColors[language === null ? null : language.toLowerCase() ] == null ? "gray" : languageColors[language === null ? null : language.toLowerCase() ];
     starGazers.innerHTML = SVG.starGazersIcon + starGazersCount;
     
-    
-    // starGazers.textContent = starGazersCount;
     // appending the nodes
 
     repositoryContainer.appendChild(repositoryDiv);
@@ -92,17 +88,6 @@ const createRepoDiv = (repository) => {
     languageStatsSpan.appendChild(languageSpan);
     info2Div.appendChild(starGazers);
 
-    let repoDivs = document.querySelectorAll(".repository");
-
-    searchInput.addEventListener('input', (e) => {
-        // console.log(e.target.value)
-        repoDivs.forEach(elem => {
-            elem.remove();
-        })
-        // console.log(repoDivs)
-
-        printRepoData(searchRepoData(e.target.value))
-    });
 
 }
 
@@ -118,14 +103,10 @@ const getRepoData = async () => {
 const printRepoData = async (repoObj) => {
     let data = await getRepoData(); // one liner before importing the data to any function
 
-    // console.log(data[0])
-    let dataResp = repoObj === undefined ? data : repoObj;
-    console.log(await dataResp)
+    let dataResp = await repoObj === undefined ? data : repoObj;
+
     dataResp.forEach(repository => {
-
-        // console.log(`${repository.language} ${repository.stargazers_count} ${repository.name} ${repository.description == null ? "" : "/ " + repository.description}`)
         createRepoDiv(repository)
-
     });
 }
 
@@ -134,14 +115,19 @@ let searchRepoData = async (searchTerm) => {
     let searchTermRegex = new RegExp(`^${searchTerm}`, 'i'); // Creating RegExp dynamically
     const searchedRepoOutput = repoData.filter(repo => searchTermRegex.test(repo.name))
     
-    // console.log(searchedRepoOutput)
     return searchedRepoOutput
-    // repoData.forEach(repo => {
-    //     console.log(`${searchTermRegex.test(repo.name) == true ? 1 : 0} ${repo.name}`)
-    // })
 }
 
 
-// searchRepoData("s")
 printRepoData()
 
+
+searchInput.addEventListener('input', async (e) => {
+    let repoDivs = document.querySelectorAll(".repository");
+
+    repoDivs.forEach(elem => {
+        elem.remove();
+    })
+
+    printRepoData(await searchRepoData(e.target.value))
+});
