@@ -62,6 +62,7 @@ d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.
     let repoA = document.querySelector(".repository-name")
     linkOfRepo.textContent = repoName;
     linkOfRepo.href = repository.svn_url;
+    linkOfRepo.setAttribute('target', '_blank');
     svgDiv.innerHTML = SVG.repositoryIcon;
     publicDiv.textContent = publicText;
 
