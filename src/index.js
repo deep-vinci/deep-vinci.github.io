@@ -33,12 +33,17 @@ const printRepoData = async (data) => {
     console.log(data[0].owner.avatar_url)
     // userImage.style.background = data[0].owner.avatar_url;
     // userImage.style.background = "blue"
-    userImage.href = "https://google.com"
     userImage.style.backgroundImage = `url(${data[0].owner.avatar_url})`;
     data.forEach(repository => {
         createRepoDiv(repository)
     });
 }
+
+userImage.addEventListener("click", () => {
+    // console.log(data[0])
+    
+    window.open(`https://github.com/${globalRepoData[0].owner.login}`)
+})
 
 let searchRepoData = async (searchTerm, globalRepoData) => {
     let searchTermRegex = new RegExp(`${searchTerm}`, 'i'); // Creating RegExp dynamically
