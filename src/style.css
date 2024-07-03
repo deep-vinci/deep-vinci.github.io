@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 body {
     background-color: rgb(13, 17, 23);
@@ -193,4 +194,22 @@ a:hover {
     .see-your-acc {
         font-size: 12px; /* Reduce font size further for smaller screens */
     }
+}
+
+.user-image-container {
+    /* width: 100vw; */
+    /* position: absolute; */
+}
+
+.user-image {
+    background-repeat: no-repeat;
+    background-size: 50px;
+    position: fixed;
+    top:0;
+    right: 0;
+    margin: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(48, 54, 61);
 }

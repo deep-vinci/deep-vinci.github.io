@@ -8,6 +8,7 @@ const searchInput = document.querySelector("#search");
 let globalRepoData = "";
 let seeYourAcc = document.querySelector(".see-your-acc");
 let userSearch = document.querySelector(".user-search");
+let userImage = document.querySelector(".user-image");
 
 const getRepoData = async (user) => {
     let response = await fetch(`https://api.github.com/users/${user}/repos`);
@@ -28,7 +29,12 @@ const clearRepositoriesContainer = () => {
 
 const printRepoData = async (data) => {
     clearRepositoriesContainer();
-
+    
+    console.log(data[0].owner.avatar_url)
+    // userImage.style.background = data[0].owner.avatar_url;
+    // userImage.style.background = "blue"
+    userImage.href = "https://google.com"
+    userImage.style.backgroundImage = `url(${data[0].owner.avatar_url})`;
     data.forEach(repository => {
         createRepoDiv(repository)
     });
