@@ -2,14 +2,15 @@ import "./style.css"
 
 import { createRepoDiv } from "./component/createRepoDiv.js"
 
-const searchInput = document.querySelector("#search")
+const me = "deep-vinci";
+const searchInput = document.querySelector("#search");
 
 let globalRepoData = "";
 let seeYourAcc = document.querySelector(".see-your-acc");
 let userSearch = document.querySelector(".user-search");
 
-const getRepoData = async () => {
-    let response = await fetch("https://api.github.com/users/deep-vinci/repos");
+const getRepoData = async (user) => {
+    let response = await fetch(`https://api.github.com/users/${user}/repos`);
     // let response = await fetch("https://api.github.com/users/Experience-Monks/repos");
     globalRepoData = await response.json()
 
@@ -40,9 +41,10 @@ let searchRepoData = async (searchTerm, globalRepoData) => {
     return searchedRepoOutput
 }
 
-seeYourAcc.addEventListener("click", () => {
+seeYourAcc.addEventListener("click", async () => {
     if (userSearch.value.trim() !== "") {
-        console.log("filled")
+        await getRepoData(userSearch.value);
+        printRepoData(await searchRepoData("", globalRepoData))
     }
 })
 
@@ -51,6 +53,6 @@ searchInput.addEventListener('input', async (e) => {
 });
 
 document.addEventListener("readystatechange", async () => {
-    await getRepoData();
+    await getRepoData(me);
     printRepoData(await searchRepoData("", globalRepoData))
 });
