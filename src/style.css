@@ -148,7 +148,7 @@ a:hover {
     justify-content: flex-end;
 }
 
-.your-repo > button {
+.see-your-acc {
     background-color: rgb(35, 134, 54);
     border: 0.8px solid rgba(240, 246, 252, 0.1);
     box-shadow: rgba(1, 4, 9, 0.4) 0px 1px 0px 0px;
@@ -180,4 +180,17 @@ a:hover {
     outline: none;
     color: white;
     padding: 3px 0px 0px 5px;
+}
+
+@media (max-width: 400px) {
+    .input-box p {
+        display: none;
+    }
+
+    .input-box {
+        width: 100%;
+    }
+    .see-your-acc {
+        font-size: 12px; /* Reduce font size further for smaller screens */
+    }
 }
