@@ -182,7 +182,7 @@ a:hover {
     padding: 3px 0px 0px 5px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
     .input-box p {
         display: none;
     }

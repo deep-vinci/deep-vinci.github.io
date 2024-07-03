@@ -4,58 +4,53 @@ import { createRepoDiv } from "./component/createRepoDiv.js"
 
 const searchInput = document.querySelector("#search")
 
+let globalRepoData = "";
+let seeYourAcc = document.querySelector(".see-your-acc");
+let userSearch = document.querySelector(".user-search");
 
 const getRepoData = async () => {
-    // in future this could be removed to bring the github actions
-    // Experience-Monks/repositories
-    // let response = await fetch("https://api.github.com/users/deep-vinci/repos");
-    let response = await fetch("https://api.github.com/users/Experience-Monks/repos");
-    let data = await response.json()
+    let response = await fetch("https://api.github.com/users/deep-vinci/repos");
+    // let response = await fetch("https://api.github.com/users/Experience-Monks/repos");
+    globalRepoData = await response.json()
 
-    return data
+    return globalRepoData
 }
 
-
-let repoData = await getRepoData();
-
-
-const printRepoData = async (repoObj) => {
-    let data = repoData; // one liner before importing the data to any function
-
-    let dataResp = await repoObj === undefined ? data : repoObj;
-
-    dataResp.forEach(repository => {
-        createRepoDiv(repository)
-    });
-}
-
-let searchRepoData = async (searchTerm, repoData) => {
-    // let repoData = await getRepoData();
-    let searchTermRegex = new RegExp(`${searchTerm}`, 'i'); // Creating RegExp dynamically
-    const searchedRepoOutput = repoData.filter(repo => searchTermRegex.test(repo.name))
-
-    return searchedRepoOutput
-}
-
-
-printRepoData()
-
-
-searchInput.addEventListener('input', async (e) => {
+const clearRepositoriesContainer = () => {
     let repoDivs = document.querySelectorAll(".repository");
 
     repoDivs.forEach(elem => {
         elem.remove();
     })
 
-    printRepoData(await searchRepoData(e.target.value, repoData))
-});
+}
 
-let seeYourAcc = document.querySelector(".see-your-acc");
-let userSearch = document.querySelector(".user-search");
+const printRepoData = async (data) => {
+    clearRepositoriesContainer();
+
+    data.forEach(repository => {
+        createRepoDiv(repository)
+    });
+}
+
+let searchRepoData = async (searchTerm, globalRepoData) => {
+    let searchTermRegex = new RegExp(`${searchTerm}`, 'i'); // Creating RegExp dynamically
+    const searchedRepoOutput = globalRepoData.filter(repo => searchTermRegex.test(repo.name))
+
+    return searchedRepoOutput
+}
 
 seeYourAcc.addEventListener("click", () => {
-    if(userSearch.value.trim() !== "") {
+    if (userSearch.value.trim() !== "") {
         console.log("filled")
     }
 })
+
+searchInput.addEventListener('input', async (e) => {
+    printRepoData(await searchRepoData(e.target.value, globalRepoData))
+});
+
+document.addEventListener("readystatechange", async () => {
+    await getRepoData();
+    printRepoData(await searchRepoData("", globalRepoData))
+});
