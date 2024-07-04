@@ -37,6 +37,8 @@ d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.
     let linkOfRepo = document.createElement("a");
     let publicDiv = document.createElement("div");
 
+    let aboutLinkOfRepo = document.createElement("a");
+
     let info2Div = document.createElement("p");
     let languageStatsSpan = document.createElement("span");
     let languageColorSpan = document.createElement("span");
@@ -50,6 +52,8 @@ d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.
     svgDiv.classList.add("svg-div");
     repositoryNameDiv.classList.add("repository-name");
     publicDiv.classList.add("public");
+
+    aboutLinkOfRepo.classList.add("about-link-of-repo");
 
     info2Div.classList.add("info-2");
     languageStatsSpan.classList.add("language-stats");
@@ -66,6 +70,10 @@ d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.
     svgDiv.innerHTML = SVG.repositoryIcon;
     publicDiv.textContent = publicText;
 
+    aboutLinkOfRepo.textContent = repository.homepage;
+    aboutLinkOfRepo.href = repository.homepage;
+    aboutLinkOfRepo.setAttribute('target', '_blank');
+
     languageSpan.textContent = language == null ? "no lang" : language;
     languageColorSpan.style.backgroundColor = languageColors[language === null ? null : language.toLowerCase()] == null ? "gray" : languageColors[language === null ? null : language.toLowerCase()];
     starGazers.innerHTML = starGazersCount == 0 ? "" : SVG.starGazersIcon + starGazersCount;
@@ -78,6 +86,8 @@ d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.
     infoDiv.appendChild(repositoryNameDiv);
     repositoryNameDiv.appendChild(linkOfRepo);
     infoDiv.appendChild(publicDiv);
+
+    repositoryDiv.append(aboutLinkOfRepo);
 
     repositoryDiv.appendChild(info2Div);
     info2Div.appendChild(languageStatsSpan);

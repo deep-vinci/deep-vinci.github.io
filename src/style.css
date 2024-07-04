@@ -8,6 +8,11 @@ body {
 }
 
 
+input, button, textarea, select {
+    font: inherit;
+  }
+  
+
 .search-container {
     /* width: 100vw; */
     height: 20vh;
@@ -26,7 +31,7 @@ body {
 .repository {
     /* width: min(300px, 100%); */
     width: 300px;
-    height: 100px;
+    height: 130px;
     flex-grow: 1;
     flex-shrink: 1;
     /* background-color: yellow; */
@@ -43,6 +48,8 @@ body {
     gap: 8px;
     padding: 0;
     align-items: flex-end;
+    overflow: auto;
+    scrollbar-width: none;
 }
 
 .svg-div {
@@ -77,6 +84,18 @@ a:visited {
 a:hover {
     text-decoration: underline;
 }
+
+.about-link-of-repo {
+    font-size: 12px;
+    margin: 5px 0px 0px 0px;
+}
+
+.about-link-of-repo:link, .about-link-of-repo:visited, .about-link-of-repo:link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    color: rgb(141, 150, 160);
+}
+
 
 .info-2 {
     color: rgb(141, 150, 160);
@@ -194,6 +213,11 @@ a:hover {
     .see-your-acc {
         font-size: 12px; /* Reduce font size further for smaller screens */
     }
+
+    
+    .footer-container {
+        margin: 10px;
+    }
 }
 
 .user-image-container {
@@ -218,4 +242,29 @@ a:hover {
 html {
     visibility: visible;
     opacity: 1;
+}
+
+footer {
+    height: 20vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.footer-container {
+    width: 95vw;
+    margin: 20px;
+    color: white;
+}
+
+.contact-me {
+    border: 0.6px rgb(141, 150, 160) solid;
+    background-color: transparent;
+    border-radius: 6px;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 0px 1px inset;
+    color: rgb(230, 237, 243);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 24px;
+    margin-top: 20px;
 }
