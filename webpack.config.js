@@ -34,7 +34,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "src/index.html",
             inject: "body",
-            scriptLoading: "defer"
         })
     ],
     mode: 'development',

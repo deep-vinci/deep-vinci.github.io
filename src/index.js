@@ -14,7 +14,7 @@ const getRepoData = async (user) => {
     let response = await fetch(`https://api.github.com/users/${user}/repos`);
     // let response = await fetch("https://api.github.com/users/Experience-Monks/repos");
     globalRepoData = await response.json()
-
+    // console.log(globalRepoData)
     return globalRepoData
 }
 
