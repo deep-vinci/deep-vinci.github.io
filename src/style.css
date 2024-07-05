@@ -88,6 +88,7 @@ a:hover {
 .about-link-of-repo {
     font-size: 12px;
     margin: 5px 0px 0px 0px;
+    overflow: hidden;
 }
 
 .about-link-of-repo:link, .about-link-of-repo:visited, .about-link-of-repo:link {

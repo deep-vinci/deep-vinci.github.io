@@ -2,7 +2,7 @@ import "./style.css"
 
 import { createRepoDiv } from "./component/createRepoDiv.js"
 
-const me = "deep-vinci";
+const me = "me";
 
 const searchInput = document.querySelector("#search");
 
