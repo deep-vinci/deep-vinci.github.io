@@ -76,7 +76,6 @@ searchInput.addEventListener('input', async (e) => {
 });
 
 document.addEventListener("readystatechange", async () => {
-
     await getRepoData(me);
     printRepoData(await searchRepoData("", globalRepoData))
 });
