@@ -2,7 +2,12 @@
 <html lang="en">
 
 <head>
-    <style>html{visibility: hidden;opacity:0;}</style>
+    <style>
+        html {
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repository Search</title>
@@ -10,22 +15,23 @@
 
 <body>
 
-    <!-- <div class="user-image-container"> -->
-    <!-- </div> -->
-    
+
     <div class="search-container">
         <div class="search-child">
             <form action="">
-                <input class="input-search" type="search" name="search" id="search" placeholder="search ...">
+                <label for="repo">Search Repositories</label>
+                <input class="input-search" type="search" name="search" id="search" placeholder="find a repository..."">
             </form>
-            <div class="user-image"></div>    
+                <div class="user-image-container">
+                    <div class="user-image"></div>
+                </div>
         </div>
     </div>
     <div class="your-repo-container">
         <div class="your-repo">
             <div class="input-box">
-                <p>github.com /  </p>
-                <input class="user-search" type="search">    
+                <p>github.com / </p>
+                <input class="user-search" type="search">
             </div>
             <button class="see-your-acc">search your account</button>
         </div>
