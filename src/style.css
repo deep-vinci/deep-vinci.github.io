@@ -142,11 +142,21 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+}
+form {
+    width: calc(100% - 50px);
+}
+
+.search-child {
+    width: 95vw;
+    display: flex;
+    margin: 20px;
 }
 
 .input-search {
-    width: 95vw;
     height: 15vh;
+    width: 100%;
     background-color: transparent;
     border: none;
     color: rgb(141, 150, 160);
@@ -230,10 +240,9 @@ a:hover {
     cursor: pointer;
     background-repeat: no-repeat;
     background-size: 50px;
-    position: fixed;
+    /* position: fixed;
     top:0;
-    right: 0;
-    margin: 20px;
+    right: 0; */
     width: 50px;
     height: 50px;
     border-radius: 50%;
