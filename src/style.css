@@ -146,23 +146,33 @@ a:hover {
 }
 form {
     width: calc(100% - 50px);
+    margin: 0 10px 0 0;
 }
+
 
 .search-child {
     width: 95vw;
     display: flex;
     margin: 20px;
+    padding: 10px;
 }
 
 .input-search {
-    height: 15vh;
     width: 100%;
-    background-color: transparent;
-    border: none;
+    background-color: rgb(22, 27, 34);
+    border: 0.8px solid rgba(240, 246, 252, 0.1);
+    border-radius: 6px;
     color: rgb(141, 150, 160);
-    font-size: 3rem;
+    font-size: 1.2rem;
+    padding: 5px;
+    margin: 10px 0 0 0;
     outline: none;
-    padding: 10px;
+    /* padding: 10px; */
+}
+
+
+label {
+    color: rgb(230, 237, 243);
 }
 
 .your-repo-container {
@@ -232,8 +242,8 @@ form {
 }
 
 .user-image-container {
-    /* width: 100vw; */
-    /* position: absolute; */
+    /* display: flex;
+    align-items: center; */
 }
 
 .user-image {
