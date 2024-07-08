@@ -141,8 +141,15 @@ header {
      width: 100%;
      display: flex;
      justify-content: center;
-}
+     border-bottom: rgb(48, 54, 61) 0.6px solid;
+    }
 
+.header-child {
+    width: 95vw;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
 
 .search-container {
     width: 100%;
