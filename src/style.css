@@ -151,6 +151,19 @@ header {
     justify-content: flex-end;
 }
 
+.project-name {
+    margin-right: auto;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.project-name span:nth-child(1) {
+    color: rgb(35, 134, 54);
+}
+
 .search-container {
     width: 100%;
     display: flex;
