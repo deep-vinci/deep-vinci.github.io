@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
     margin: 0;
+
+    --user-image-dimension: 50px;
 }
 body {
     background-color: rgb(13, 17, 23);
@@ -280,9 +282,9 @@ label {
     /* position: fixed;
     top:0;
     right: 0; */
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: var(--user-image-dimension);
+    height: var(--user-image-dimension);
+    border-radius: 6px;
     background-color: rgb(48, 54, 61);
 }
 
