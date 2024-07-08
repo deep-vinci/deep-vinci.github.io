@@ -137,6 +137,13 @@ a:hover {
     height: 12px;
 }
 
+header {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+}
+
+
 .search-container {
     width: 100%;
     display: flex;
@@ -145,15 +152,15 @@ a:hover {
     flex-direction: row;
 }
 form {
-    width: calc(100% - 50px);
-    margin: 0 10px 0 0;
+    width: 100%;
+    /* margin: 0 10px 0 0; */
 }
 
 
 .search-child {
     width: 95vw;
     display: flex;
-    margin: 20px;
+    /* margin: 20px; */
     padding: 10px;
 }
 
