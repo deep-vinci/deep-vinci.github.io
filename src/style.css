@@ -249,7 +249,7 @@ label {
     border: none;
     outline: none;
     color: white;
-    padding: 3px 0px 0px 5px;
+    padding: 0px 0px 0px 5px;
 }
 
 @media (max-width: 600px) {
@@ -317,3 +317,4 @@ footer {
     padding: 14px 24px;
     margin-top: 20px;
 }
+
