@@ -1,0 +1,22 @@
+name: prefetch the data
+run-name: Prefetching the Data from Github public api 🎊
+
+on: push
+
+jobs:
+  prefetch:
+
+    runs-on: ubuntu-latest
+
+    permissions: 
+      contents: write
+
+    steps:
+      uses: actions/checkout@v2
+
+      run: curl https://api.github.com/users/deep-vinci/repos > prefetch-data.json && echo "Data Fetched Success 🎊"
+
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "bot: prefetch the data from github public api"
+        branch: main
