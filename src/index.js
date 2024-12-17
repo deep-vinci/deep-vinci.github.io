@@ -12,33 +12,29 @@ let userSearch = document.querySelector(".user-search");
 let userImage = document.querySelector(".user-image");
 
 const getRepoData = async (user) => {
-    // if (user == me) {
-    //     let response = await fetch(`https://api.github.com/users/${user}/repos`);
-    //     // let response = await fetch("https://api.github.com/users/Experience-Monks/repos");
-    //     let data = await response.json()
-    //     // console.log(globalRepoData)
-    //     // if (data.message == undefined) {
-    //     //     alert("rate limited")
-    //     // }
-    //     if (data.status == 404) {
-    //         console.log('error')
-    //     }
-    //     globalRepoData = data;
-     
-    // }
-
-    let response = await fetch(`https://api.github.com/users/${user}/repos`);
-    // let response = await fetch("https://api.github.com/users/Experience-Monks/repos");
-    let data = await response.json()
-    // console.log(globalRepoData)
-    // if (data.message == undefined) {
-    //     alert("rate limited")
-    // }
-    if (data.status == 404) {
-        console.log('error')
+    if (user == me) {
+        let response = await fetch(`https://raw.githubusercontent.com/deep-vinci/deep-vinci.github.io/refs/heads/main/prefetch-data.json`);
+        let data = await response.json()
+        if (data.status == 404) {
+            console.log('error')
+        }
+        globalRepoData = data;
+        return globalRepoData
+    } else {
+        let response = await fetch(`https://api.github.com/users/${user}/repos`);
+        // let response = await fetch("https://api.github.com/users/Experience-Monks/repos");
+        let data = await response.json()
+        // console.log(globalRepoData)
+        // if (data.message == undefined) {
+        //     alert("rate limited")
+        // }
+        if (data.status == 404) {
+            console.log('error')
+        }
+        globalRepoData = data;
+        return globalRepoData    
     }
-    globalRepoData = data;
-    return globalRepoData
+
 }
 
 const clearRepositoriesContainer = () => {
