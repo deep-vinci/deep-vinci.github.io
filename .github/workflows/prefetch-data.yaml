@@ -1,7 +1,9 @@
 name: prefetch the data
 run-name: Prefetching the Data from Github public api 🎊
 
-on: push
+on: 
+  schedule:
+    - cron: 0 0 * * * # every day at 0 min of the 0 hour of the day (basically 12AM midnight)
 
 jobs:
   prefetch:
@@ -13,6 +15,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - run: date
 
       - run: curl https://api.github.com/users/deep-vinci/repos > prefetch-data.json && echo "Data Fetched Success 🎊"
 
