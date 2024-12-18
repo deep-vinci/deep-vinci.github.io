@@ -1,9 +1,9 @@
 name: prefetch the data
 run-name: Prefetching the Data from Github public api 🎊
 
-on: push
-  # schedule:
-  #   - cron: 0 0 * * * # every day at 0 min of the 0 hour of the day (basically 12AM midnight)
+on:
+  schedule:
+    - cron: 0 0 * * * # every day at 0 min of the 0 hour of the day (basically 12AM midnight)
 
 jobs:
   prefetch:
