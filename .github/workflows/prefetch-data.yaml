@@ -1,26 +1,26 @@
-name: prefetch the data
-run-name: Prefetching the Data from Github public api 🎊
+# name: prefetch the data
+# run-name: Prefetching the Data from Github public api 🎊
 
-on:
-  schedule:
-    - cron: 0 0 * * * # every day at 0 min of the 0 hour of the day (basically 12AM midnight)
+# on:
+#   schedule:
+#     - cron: 0 0 * * * # every day at 0 min of the 0 hour of the day (basically 12AM midnight)
 
-jobs:
-  prefetch:
+# jobs:
+#   prefetch:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    permissions: 
-      contents: write
+#     permissions:
+#       contents: write
 
-    steps:
-      - uses: actions/checkout@v2
+#     steps:
+#       - uses: actions/checkout@v2
 
-      - run: date
+#       - run: date
 
-      - run: curl https://api.github.com/users/deep-vinci/repos > prefetch-data.json && echo "Data Fetched Success 🎊"
+#       - run: curl https://api.github.com/users/deep-vinci/repos > prefetch-data.json && echo "Data Fetched Success 🎊"
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "bot: prefetch the data from github public api"
-          branch: main
+#       - uses: stefanzweifel/git-auto-commit-action@v5
+#         with:
+#           commit_message: "bot: prefetch the data from github public api"
+#           branch: main
