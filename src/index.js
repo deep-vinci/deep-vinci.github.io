@@ -26,12 +26,8 @@ const getRepoData = async (user) => {
         let response = await fetch(
             `https://api.github.com/users/${user}/repos?per_page=100`
         );
-        // let response = await fetch("https://api.github.com/users/Experience-Monks/repos");
         let data = await response.json();
-        // console.log(globalRepoData)
-        // if (data.message == undefined) {
-        //     alert("rate limited")
-        // }
+
         if (data.status == 404) {
             console.log("error");
         }
@@ -56,8 +52,6 @@ const printRepoData = async (data) => {
 
     console.log(globalRepoData);
     console.log(data[0].owner.avatar_url);
-    // userImage.style.background = data[0].owner.avatar_url;
-    // userImage.style.background = "blue"
     userImage.style.backgroundImage = `url(${data[0].owner.avatar_url})`;
     data.forEach((repository) => {
         createRepoDiv(repository);
@@ -65,8 +59,6 @@ const printRepoData = async (data) => {
 };
 
 userImage.addEventListener("click", () => {
-    // console.log(data[0])
-
     window.open(`https://github.com/${globalRepoData[0].owner.login}`);
 });
 
